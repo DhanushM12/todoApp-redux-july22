@@ -15,7 +15,7 @@ class TodoList extends Component {
          </thead>
          <tbody>
             {this.props.tasks.map((task, index) => 
-              <Todo key={index} task={task}/>
+              <Todo key={index} task={task} id={index}/>
             )}
          </tbody>
         </table>
