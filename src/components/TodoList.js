@@ -1,9 +1,33 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Todo from './Todo'
 
-export default class TodoList extends Component {
+class TodoList extends Component {
   render() {
     return (
-      <div>TodoList</div>
+      <div>
+        <table>
+          <thead>
+            Tasks
+          </thead>
+         <thead>
+          Actions
+         </thead>
+         <tbody>
+            {this.props.tasks.map((task, index) => 
+              <Todo key={index} task={task}/>
+            )}
+         </tbody>
+        </table>
+      </div>
     )
   }
 }
+
+function mapStateToProps(state){
+  return {
+    tasks: state.tasks
+  }
+}
+
+export default connect(mapStateToProps)(TodoList);
